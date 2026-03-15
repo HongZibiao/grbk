@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-gray-50 text-gray-900 antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow duration-200;
+  }
+  
+  .input {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200;
+  }
+  
+  .textarea {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 resize-none;
+  }
+}
+
+.hljs {
+  @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto;
+}
+
+.hljs-keyword {
+  @apply text-purple-400;
+}
+
+.hljs-string {
+  @apply text-green-400;
+}
+
+.hljs-comment {
+  @apply text-gray-500;
+}
+
+.hljs-function {
+  @apply text-blue-400;
+}
+
+.hljs-number {
+  @apply text-orange-400;
+}
