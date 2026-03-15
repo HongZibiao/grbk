@@ -3,11 +3,7 @@
   "devCommand": "npm run dev",
   "installCommand": "npm install",
   "framework": "nextjs",
-  "regions": ["hkg1"],
-  "env": {
-    "POSTGRES_URL": "@postgres_url",
-    "ADMIN_USERNAME": "@admin_username",
-    "ADMIN_PASSWORD": "@admin_password",
-    "JWT_SECRET": "@jwt_secret"
-  }
+  "regions": [
+    "hkg1"
+  ]
 }
