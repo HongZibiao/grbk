@@ -6,15 +6,24 @@ import { format } from 'date-fns'
 
 async function getPosts() {
   try {
-    const allPosts = await db
-      .select()
-      .from(posts)
-      .where(eq(posts.published, true))
-      .orderBy(desc(posts.createdAt))
-      .limit(10)
+    // 添加 5 秒超时处理
+    const timeoutPromise = new Promise((_, reject) => {
+      setTimeout(() => reject(new Error('Database connection timeout')), 5000)
+    })
+
+    const allPosts = await Promise.race([
+      db
+        .select()
+        .from(posts)
+        .where(eq(posts.published, true))
+        .orderBy(desc(posts.createdAt))
+        .limit(10),
+      timeoutPromise
+    ])
     
     return allPosts
   } catch (error) {
+    console.error('Error fetching posts:', error)
     return []
   }
 }
